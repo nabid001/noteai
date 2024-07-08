@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Note Ai",
   description:
     "NoteAi is a platform where you can take notes while you are studying. NoteAi supports multiple languages.",
+  icons: {
+    icon: "/assets/images/study.jpg",
+  },
 };
 
 export default function RootLayout({
