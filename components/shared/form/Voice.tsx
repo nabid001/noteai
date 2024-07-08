@@ -33,7 +33,7 @@ const Voice = ({
     // Set language based on toggle state
     recognition.lang = language;
 
-    recognition.onresult = (event) => {
+    recognition.onresult = (event: any) => {
       const transcript = event.results[0][0].transcript;
       onChangeValue(transcript);
 
