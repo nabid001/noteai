@@ -9,6 +9,8 @@ export async function getUserByClerkId({ clerkId }: { clerkId: string }) {
   try {
     await connectToDatabase();
 
+    // if (!clerkId) return;
+
     const user = await User.findOne({ clerkId });
 
     return user;
