@@ -50,9 +50,9 @@ export const recentSavedNotes = async ({
   try {
     await connectToDatabase();
 
-    if (!author) {
-      throw new Error("Author is required");
-    }
+    // if (!author) {
+    //   throw new Error("Author is required");
+    // }
 
     const notes = await Note.find({
       author,
