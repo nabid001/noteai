@@ -38,7 +38,7 @@ const Notes = async ({
         </h2>
       )}
       <div className="flex gap-3 max-sm:flex-col max-sm:gap-5">
-        {notes.length > 0 ? (
+        {notes.length > 0 &&
           notes.map((note: NoteProps) => (
             <div key={note._id}>
               <Card className="max-w-sm shadow-md ">
@@ -58,10 +58,7 @@ const Notes = async ({
                 </CardFooter>
               </Card>
             </div>
-          ))
-        ) : (
-          <p className="text-lg font-medium">Oops, found nothing</p>
-        )}
+          ))}
       </div>
     </>
   );

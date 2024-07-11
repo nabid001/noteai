@@ -40,11 +40,6 @@ const VoiceForm = ({ mongoId }: { mongoId: string }) => {
 
   const pathname = usePathname();
 
-  // console.log({
-  //   question: questions,
-  //   answer: answers,
-  // });
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
