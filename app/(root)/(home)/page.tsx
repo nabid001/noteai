@@ -7,10 +7,8 @@ import { auth } from "@clerk/nextjs/server";
 // import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const { userId } = auth();
-  // if (!userId) {
-  //   redirect("/sign-up");
-  // }
+  const { userId } = await auth();
+
   const mongoUser = await getUserByClerkId({ clerkId: userId! });
 
   return (
@@ -20,7 +18,6 @@ export default async function Home() {
         <VoiceForm mongoId={JSON.stringify(mongoUser._id)} />
       </div>
 
-      {/* TODO: add type to Notes down below and then render all the note to the notes page */}
       <div className="px-5">
         <Notes type="home" author={mongoUser._id} clerkId={userId!} />
       </div>
