@@ -14,7 +14,7 @@ import {
 
 type NotePageProps = {
   type: "home" | "all-note";
-  currentSubject?: string;
+  currentSubject?: string | Promise<any>;
   author: string;
   clerkId: string;
 };
@@ -27,7 +27,7 @@ const Notes = async ({
 }: NotePageProps) => {
   const notes = await recentSavedNotes({
     author,
-    filter: currentSubject,
+    filter: await currentSubject,
   });
 
   return (

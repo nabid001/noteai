@@ -6,17 +6,16 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { getUserByClerkId } from "@/lib/actions/user.action";
 
-type AllNotesProps = {
-  searchParams: {
-    subject: string;
-  };
-};
-
-const AllNotes = async ({ searchParams: { subject } }: AllNotesProps) => {
+const AllNotes = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ subject?: string }>;
+}) => {
   const { userId } = auth();
   if (!userId) {
     redirect("/sign-up");
   }
+  const subject = (await searchParams).subject;
 
   const mongoUser = await getUserByClerkId({ clerkId: userId });
 
